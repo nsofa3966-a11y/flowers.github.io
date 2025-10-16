@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - flowers for you</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(135deg, #F5F5F5 0%, #D3D3D3 50%, #800020 100%); 
+            color: #333; 
+            animation: fadeIn 1s ease-in; 
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        header { 
+            background: linear-gradient(90deg, #A9A9A9 0%, #800020 100%); 
+            color: white; 
+            padding: 20px; 
+            text-align: center; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+            border-bottom: 4px solid #800020; 
+        }
+        header h1 { margin: 0; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        
+        nav { 
+            background: linear-gradient(to right, #D3D3D3, #800020); 
+            padding: 10px; 
+            text-align: center; 
+            border-radius: 10px; 
+            margin: 10px; 
+        }
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #800020; 
+            font-weight: bold; 
+            transition: all 0.3s; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+            background: rgba(255,255,255,0.8); 
+        }
+        nav a:hover { 
+            color: #fff; 
+            background: #800020; 
+            transform: scale(1.1); 
+        }
+        
+        .register { 
+            padding: 20px; 
+            background: linear-gradient(to bottom, #F5F5F5, #A9A9A9); 
+            margin: 20px auto; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            border: 1px solid #D3D3D3; 
+            max-width: 500px; 
+        }
+        form { display: flex; flex-direction: column; }
+        label { margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { 
+            margin-bottom: 15px; 
+            padding: 10px; 
+            border: 1px solid #A9A9A9; 
+            border-radius: 5px; 
+            transition: border-color 0.3s; 
+        }
+        input:hover, select:hover, textarea:hover { border-color: #800020; }
+        
+        .card-fields { 
+            display: flex;
+            flex-direction: column; 
+            gap: 15px;
+        }
+        
+        .card-fields > div {
+            width: 100%; 
+        }
+        
+        button { 
+            background: #800020; 
+            color: white; 
+            border: none; 
+            padding: 10px; 
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        button:hover { 
+            background: #660018; 
+            transform: scale(1.1); 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3); 
+        }
+        
+        footer { 
+            background: linear-gradient(90deg, #A9A9A9 0%, #800020 100%); 
+            color: white; 
+            text-align: center; 
+            padding: 15px; 
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); 
+        }
+        
+        @media (max-width: 768px) { 
+            .register { margin: 10px; } 
+            .card-fields { flex-direction: column; }
+            nav a { margin: 0 10px; } 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>flowers for you</h1>
+        <p>Цветочный магазин</p>
+    </header>
+    <nav>
+        <a href="цветы.html">Главная</a>
+        <a href="цветы2.html">Каталог</a>
+        <a href="цветы3.html">Корзина</a>
+        <a href="цветы4.html">Регистрация</a>
+    </nav>
+    <section class="register">
+        <h2>Регистрация</h2>
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" required>
+            
+            <label for="avatar">Добавить фото:</label>
+            <input type="file" id="avatar" accept="image/*" required>
+            
+            <label for="address">Адрес доставки:</label>
+            <textarea id="address" rows="3" placeholder="Введите полный адрес" required></textarea>
+            
+            <label for="delivery-time">Время доставки:</label>
+            <select id="delivery-time" required>
+                <option value="">Выберите время</option>
+                <option value="09:00">09:00 - 12:00</option>
+                <option value="12:00">12:00 - 15:00</option>
+                <option value="15:00">15:00 - 18:00</option>
+                <option value="18:00">18:00 - 21:00</option>
+            </select>
+            
+            <h3>Данные банковской карты (для оплаты)</h3>
+            <div class="card-fields">
+                <div>
+                    <label for="card-number">Номер карты:</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required pattern="\d{4} \d{4} \d{4} \d{4}">
+                </div>
+                <div>
+                    <label for="card-expiry">Срок действия (MM/YY):</label>
+                    <input type="text" id="card-expiry" placeholder="MM/YY" required pattern="\d{2}/\d{2}">
+                </div>
+                <div>
+                    <label for="card-cvv">CVV:</label>
+                    <input type="text" id="card-cvv" placeholder="123" required pattern="\d{3}">
+                </div>
+            </div>
+            
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; flowers for you | Контакты: +7 123 456 7890</p>
+    </footer>
+</body>
+</html>
+
+
